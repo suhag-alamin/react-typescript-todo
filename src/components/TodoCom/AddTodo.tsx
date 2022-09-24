@@ -1,25 +1,27 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 const AddTodo = ({
-  hanldeAddTodo,
+  handleAddTodo,
 }: {
-  hanldeAddTodo: (text: string) => void;
+  handleAddTodo: (text: string) => void;
 }) => {
   const todoRef = useRef<HTMLInputElement>(null);
 
-  const hanldeSubmit: (e: any) => void = (e) => {
+  const handleSubmit: (e: React.FormEvent) => void = (e) => {
     e.preventDefault();
     if (todoRef.current && todoRef.current.value !== "") {
       const todo = todoRef.current.value;
-      hanldeAddTodo(todo);
+      handleAddTodo(todo);
+      todoRef.current?.blur();
       todoRef.current.value = "";
     } else {
       alert("Please enter a todo");
+      todoRef.current?.blur();
     }
   };
 
   return (
-    <form className="todo-form" onSubmit={hanldeSubmit}>
+    <form className="todo-form" onSubmit={handleSubmit}>
       <input
         type="text"
         className="todo-input"

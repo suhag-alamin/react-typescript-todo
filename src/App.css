@@ -3,7 +3,7 @@
 body {
   font-family: "Neucha", cursive;
   font-weight: 400;
-  background: #f8edeb;
+  background: #a8dadc;
 }
 /* todo style  */
 
@@ -12,6 +12,7 @@ body {
   align-items: center;
   width: 90%;
   position: relative;
+  margin-bottom: 40px;
 }
 
 .todo-input {
@@ -50,4 +51,9 @@ body {
 .todo-button:active {
   transform: scale(0.8);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.single-todo-box {
+  background: #006d77;
+  color: #fff;
 }
