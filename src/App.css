@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+/* google font  */
+@import url("https://fonts.googleapis.com/css2?family=Neucha&display=swap");
+body {
+  font-family: "Neucha", cursive;
+  font-weight: 400;
+  background: #f8edeb;
 }
+/* todo style  */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todo-form {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 90%;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-input {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 24px;
+  border-radius: 50px;
+  outline: none;
+  transition: 0.3s;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-input:focus {
+  box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.todo-button {
+  background: #118ab2;
+  color: #fff;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: 0.3s all;
+}
+
+.todo-button:hover {
+  background: #1ca9d8;
+}
+
+.todo-button:active {
+  transform: scale(0.8);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
