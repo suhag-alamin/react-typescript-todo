@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddTodo from "./AddTodo";
 import { TodoInterface } from "./todoInterface";
 import Todos from "./Todos";
 
 const TodoLists = () => {
-  const [todos, setTodos] = useState<TodoInterface[]>([]);
+  // get from localStorage
+  const getTodos = JSON.parse(
+    localStorage.getItem("todos") || "[]"
+  ) as TodoInterface[];
+
+  const [todos, setTodos] = useState<TodoInterface[]>(getTodos);
 
   const handleAddTodo: (todo: string) => void = (todo) => {
     setTodos([
@@ -40,6 +45,11 @@ const TodoLists = () => {
       todos.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo))
     );
   };
+
+  useEffect(() => {
+    // save to localStorage
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <div className="container mx-auto px-20">
