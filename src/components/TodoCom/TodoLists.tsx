@@ -35,17 +35,11 @@ const TodoLists = () => {
     );
   };
 
-  // const handleEditTodo: (id: number, newTodo: string) => void = (
-  //   id,
-  //   newTodo
-  // ) => {
-  //   setTodos(
-  //     todos.map((todo) => {
-  //       if (todo.id === id) {
-  //         return {
-  //           ...todo,
-
-  console.log(todos);
+  const handleEditTodo = (updatedTodo: TodoInterface): void => {
+    setTodos(
+      todos.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo))
+    );
+  };
 
   return (
     <div className="container mx-auto px-20">
@@ -54,6 +48,7 @@ const TodoLists = () => {
         todos={todos}
         handleCompleteTodo={handleCompleteTodo}
         handleDeleteTodo={handleDeleteTodo}
+        handleEditTodo={handleEditTodo}
       />
     </div>
   );
