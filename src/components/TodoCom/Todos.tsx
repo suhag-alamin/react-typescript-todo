@@ -16,7 +16,7 @@ const Todos: React.FC<TodosProps> = ({
   handleEditTodo,
 }) => {
   return (
-    <div className="grid grid-cols-3 gap-4 justify-around">
+    <div className="grid grid-cols-1 gap-4 justify-around">
       {todos.map((todo) => (
         <SingleTodo
           key={todo.id}

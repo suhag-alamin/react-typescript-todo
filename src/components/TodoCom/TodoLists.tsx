@@ -52,14 +52,40 @@ const TodoLists = () => {
   }, [todos]);
 
   return (
-    <div className="container mx-auto px-20">
+    <div className="container mx-auto px:4 md:px-20">
       <AddTodo handleAddTodo={handleAddTodo} />
-      <Todos
-        todos={todos}
-        handleCompleteTodo={handleCompleteTodo}
-        handleDeleteTodo={handleDeleteTodo}
-        handleEditTodo={handleEditTodo}
-      />
+      <div className="grid grid-cols-1 lg:grid-cols-2 justify-between items-start gap-6">
+        <div
+          style={{ backgroundColor: "#f26157" }}
+          className="p-4 rounded-2xl shadow-lg "
+        >
+          <h3 className="text-2xl font-bold mb-4 text-slate-100">
+            Active Tasks
+          </h3>
+          <Todos
+            todos={todos.filter((todo) => !todo.isCompleted)}
+            handleCompleteTodo={handleCompleteTodo}
+            handleDeleteTodo={handleDeleteTodo}
+            handleEditTodo={handleEditTodo}
+          />
+        </div>
+        <div
+          style={{ backgroundColor: "#2f3e46" }}
+          className="p-4 rounded-2xl shadow-lg "
+        >
+          <h3 className="text-2xl font-bold mb-4 text-slate-100">
+            Completed Tasks
+          </h3>
+          <div>
+            <Todos
+              todos={todos.filter((todo) => todo.isCompleted)}
+              handleCompleteTodo={handleCompleteTodo}
+              handleDeleteTodo={handleDeleteTodo}
+              handleEditTodo={handleEditTodo}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

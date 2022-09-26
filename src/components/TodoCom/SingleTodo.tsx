@@ -37,7 +37,7 @@ const SingleTodo: React.FC<Props> = ({
 
   return (
     <form onSubmit={handleEditSubmit}>
-      <div className="single-todo-box p-4 rounded-lg shadow-lg flex justify-between items-center">
+      <div className="single-todo-box p-4 rounded-lg shadow-xl flex justify-between items-center">
         <div>
           {edit ? (
             <input
