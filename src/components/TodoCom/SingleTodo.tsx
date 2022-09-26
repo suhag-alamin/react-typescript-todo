@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { TodoInterface } from "./todoInterface";
 import { MdModeEdit, MdDelete, MdDone } from "react-icons/md";
 
@@ -29,6 +29,12 @@ const SingleTodo: React.FC<Props> = ({
     handleEditTodo(updatedTodo);
   };
 
+  const editRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    editRef.current?.focus();
+  }, [edit]);
+
   return (
     <form onSubmit={handleEditSubmit}>
       <div className="single-todo-box p-4 rounded-lg shadow-lg flex justify-between items-center">
@@ -38,6 +44,7 @@ const SingleTodo: React.FC<Props> = ({
               className="text-2xl px-2 bg-transparent outline-none border-2 border-green-200	rounded"
               value={editTodo}
               onChange={(e) => setEditTodo(e.target.value)}
+              ref={editRef}
             />
           ) : (
             <h3 className="text-2xl border-2 border-transparent px-2">
